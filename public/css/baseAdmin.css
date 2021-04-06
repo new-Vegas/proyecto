@@ -1,0 +1,116 @@
+:root {
+    --blue: rgb(122, 193, 255);
+}
+
+div.nav {
+    height: 100vh;
+    position: fixed;
+    width: 20%;
+}
+
+div.main {
+    width: 80%;
+    margin-left: 20%;
+    padding-top: 3em;;
+}
+
+div.counters {
+    display: flex;
+    flex-direction: row;
+}
+
+div.counter {
+    flex: 1;
+    text-align: center;
+    border-right: 2px solid #dedede;
+    margin: 1em 0;
+    padding: 0.7em 0;
+}
+
+div.counter:last-child {
+    border-right: none;
+}
+
+div.plots {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2em;
+    height: 50vh;
+}
+
+div.plots > div {
+    flex: 1;
+    padding-right: 2em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-transform: uppercase;
+}
+
+
+div.comment img {
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+}
+
+/* Footer */
+
+footer {
+    margin-top: 3em;
+}
+
+footer .footer-links a {
+    margin-top: 0.2em;
+}
+
+footer .footer-links {
+    justify-content: space-evenly;
+}
+
+/* Breadcump */
+ol.breadcrumb a {
+    text-decoration: none;
+}
+
+/* Left side menu */
+div.nav {
+    padding: 2em;
+    text-align: center;
+    display: block;
+}
+
+div.nav h3 {
+    text-align: center;
+}
+
+div.nav ul.nav {
+    flex-direction: column;
+}
+
+div.nav ul li {
+    margin-top: 1em;
+}
+
+div.nav ul li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+div.nav ul li a:hover {
+    color: rgb(95, 93, 219);
+}
+
+div.nav ul li a.selected {
+    border-bottom: 1px solid rgb(95, 93, 219);
+    color: rgb(95, 93, 219);
+}
+
+table tbody span:hover {
+    cursor: pointer;
+}
+
+a.logo {
+    text-decoration: none;
+    color: inherit;
+}
