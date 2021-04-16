@@ -4,7 +4,7 @@ INSERT INTO categories (ES_name, EN_name, slug) VALUES ('Colaboradores', 'Collab
 INSERT INTO categories (ES_name, EN_name, slug) VALUES ('Productos', 'Products', 'product');
 INSERT INTO categories (ES_name, EN_name, slug) VALUES ('Articulos', 'Articles', 'articles');
 INSERT INTO categories (ES_name, EN_name, slug) VALUES ('Noticias', 'News', 'news');
-INSERT INTO categories (ES_name, EN_name, slug) VALUES ('Foros', 'Forums', 'Foros');
+INSERT INTO categories (ES_name, EN_name, slug) VALUES ('Foros', 'Forums', 'foros');
 
 INSERT INTO user_types (name, nameES, descENG, descES) VALUES (' ', ' ', ' ', ' ');
 
@@ -16,6 +16,7 @@ INSERT INTO category_posts (post_id, category_id) VALUES (1, 9);/*se anexa el po
 
 /****NOTAS****/
 /****
-cada valor que no este entre comillas por favor cambiarlo por el valor que da su base de datos.
-El slug hacerlo unico para cada post.
+- Cada valor que no este entre comillas por favor cambiarlo por el valor que da su base de datos.
+- El slug hacerlo unico para cada post.
+- Los id son enteros, no le pongan comillas.
 ****/
