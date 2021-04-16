@@ -11,7 +11,11 @@ INSERT INTO user_types (name, nameES, descENG, descES) VALUES (' ', ' ', ' ', ' 
 /*Pasos para agregar un post*/
 INSERT INTO users (name, email, password) VALUES ('user', 'user@mail.com', 'equipo1234');/*Es necesario que exista un user*/
 INSERT INTO posts (user_id, usr_type_id, name, name_ES, slug, image, content, content_ES, enabled)  /*se genera el post*/
-VALUES (1, 7, 'Hello World!', 'Hola mundo!', '', 'post', 'https://i.pinimg.com/originals/24/5a/e1/245ae17922e87954167a22bb77addf89.jpg', 'These is a test post', 1);
+VALUES (1, 7, 'Hello World!', 'Hola mundo!', 'post', 'https://i.pinimg.com/originals/24/5a/e1/245ae17922e87954167a22bb77addf89.jpg', 'These is a test post', 1);
 INSERT INTO category_posts (post_id, category_id) VALUES (1, 9);/*se anexa el post a una categoria*/
 
-/****IMPORTANTE: cada valor que no este entre comillas por favor cambiarlo por el valor que da su base de datos****/
+/****NOTAS****/
+/****
+cada valor que no este entre comillas por favor cambiarlo por el valor que da su base de datos.
+El slug hacerlo unico para cada post.
+****/
