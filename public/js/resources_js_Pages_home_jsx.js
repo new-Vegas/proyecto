@@ -432,7 +432,34 @@ var Home = function Home() {
     className: "container mt-4"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
     className: "text-uppercase mt-5 mb-4"
-  }, t('last post')), posts.map(function (p, i) {
+  }, t('about')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+    className: "text mt-5 mb-4"
+  },t('about.text.1')),/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+    className: "text mt-5 mb-4"
+  },t('about.text.2')),t('about.text.3'),react__WEBPACK_IMPORTED_MODULE_0__.createElement("ol", {
+    className: "text mt-5 mb-4"
+  },
+    /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+        className: "text mt-5 mb-4"
+    },t('about.list.1')),
+    /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+        className: "text mt-5 mb-4"
+    },t('about.list.2')),
+    /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+        className: "text mt-5 mb-4"
+    },t('about.list.3')),
+    /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+        className: "text mt-5 mb-4"
+    },t('about.list.4')),
+    /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+        className: "text mt-5 mb-4"
+    },t('about.list.5')),
+  ),/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+    className: "text mt-5 mb-4"
+  },t('about.text.4')),
+  /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
+    className: "text-uppercase mt-5 mb-4"
+  }, t('last post')),posts.map(function (p, i) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_PostCard__WEBPACK_IMPORTED_MODULE_3__.default, {
       key: i,
       alt: i % 2 == 0,
