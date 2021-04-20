@@ -48,6 +48,7 @@ INSERT INTO posts (user_id, usr_type_id, name, name_ES, slug, image, content, co
 VALUES (1, 1, 'Hermelinda de la Cruz Duran', 'Hermelinda de la Cruz Duran', 'participante intrainstitucional', 'https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/512x512/plain/user.png ', 'UABC , Facultad de Ciencias Químicas e Ingeniería', 1);
 
 
+/*INSERT INTO category_posts (post_id, category_id) VALUES (1, 1);*/
 INSERT INTO category_posts (post_id, category_id) VALUES (2, 1);/*se anexa el post a una categoria , revisa con cual Id se genero el post de la linea anterior */
 INSERT INTO category_posts (post_id, category_id) VALUES (3, 1);
 INSERT INTO category_posts (post_id, category_id) VALUES (4, 1);
