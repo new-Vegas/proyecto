@@ -26,8 +26,19 @@ const Home = () => {
             </section>
 
             <div className="container mt-4">
+                <h3>{t('about')}</h3>
+                <p>{t('about.text.1')}</p>
+                <p>{t('about.text.2')}</p>
+                <p>{t('about.text.3')}</p>
+                <ul>
+                    <li>{t('about.list.1')}</li>
+                    <li>{t('about.list.2')}</li>
+                    <li>{t('about.list.3')}</li>
+                    <li>{t('about.list.4')}</li>
+                    <li>{t('about.list.5')}</li>
+                </ul>
+                <p>{t('about.text.4')}</p>
                 <h2 className="text-uppercase mt-5 mb-4">{t('last post')}</h2>
-                
                 {posts.map((p, i) => <PostCard key={i} alt={i%2==0} name_ES={p.name_ES} image={p.image} name={p.name} extract={(i18n.language === 'en' ? p.content : p.content_ES).split(' ').filter((_, i) => i < 20).join(" ")} slug={p.slug}></PostCard>)}
             </div>
         </>

@@ -310,7 +310,7 @@ function Layout(_ref) {
     className: "bg-dark text-white text-center p-1"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
     className: ""
-  }, "Health 101"),t('Contact'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, "Health 101"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "mt-3 footer-links d-flex flex-column flex-md-row"
   })));
 }
@@ -430,36 +430,9 @@ var Home = function Home() {
     className: "content"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Health 101"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, t('hero.text')))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "container mt-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, t('about')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, t('about.text.1')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, t('about.text.2')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, t('about.text.3')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, t('about.list.1')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, t('about.list.2')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, t('about.list.3')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, t('about.list.4')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, t('about.list.5'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, t('about.text.4')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
     className: "text-uppercase mt-5 mb-4"
-  }, t('about')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-    className: "text mt-5 mb-4"
-  },t('about.text.1')),/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-    className: "text mt-5 mb-4"
-  },t('about.text.2')),t('about.text.3'),react__WEBPACK_IMPORTED_MODULE_0__.createElement("ol", {
-    className: "text mt-5 mb-4"
-  },
-    /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
-        className: "text mt-5 mb-4"
-    },t('about.list.1')),
-    /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
-        className: "text mt-5 mb-4"
-    },t('about.list.2')),
-    /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
-        className: "text mt-5 mb-4"
-    },t('about.list.3')),
-    /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
-        className: "text mt-5 mb-4"
-    },t('about.list.4')),
-    /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
-        className: "text mt-5 mb-4"
-    },t('about.list.5')),
-  ),/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-    className: "text mt-5 mb-4"
-  },t('about.text.4')),
-  /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
-    className: "text-uppercase mt-5 mb-4"
-  }, t('last post')),posts.map(function (p, i) {
+  }, t('last post')), posts.map(function (p, i) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_PostCard__WEBPACK_IMPORTED_MODULE_3__.default, {
       key: i,
       alt: i % 2 == 0,
