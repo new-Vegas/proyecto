@@ -310,7 +310,7 @@ function Layout(_ref) {
     className: "bg-dark text-white text-center p-1"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
     className: ""
-  }, "Health 101"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, "Health 101"),t('Contact'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "mt-3 footer-links d-flex flex-column flex-md-row"
   })));
 }

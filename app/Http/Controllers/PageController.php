@@ -102,4 +102,20 @@ class PageController extends Controller
             'types' => $types,
         ]);
     }
+    
+    public function search(Request $request){
+        // Get the search value from the request
+        $search = $request->input('search');
+    
+        // Search in the title and body columns from the posts table
+        $posts = Post::query()
+            ->where('name', 'LIKE', "%{$search}%")
+            ->orWhere('name_ES', 'LIKE', "%{$search}%")
+            ->orWhere('content', 'LIKE', "%{$search}%")
+            ->orWhere('content_ES', 'LIKE', "%{$search}%")
+            ->get();
+    
+        // Return the search view with the resluts compacted
+        return view('search', compact('posts'));
+    }
 }

@@ -25,8 +25,9 @@ use App\Models\Response;
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/post/{post:slug}', [PageController::class, 'post'])->name('post');
 
-Route::get('/survey/{survey:slug}', [PageController::class, 'survey'])->name('survey');
 
+Route::get('/survey/{survey:slug}', [PageController::class, 'survey'])->name('survey');
+Route::get('/search/', [PageController::class, 'search'])->name('search');
 Route::get('/Category/{category:slug}', [PageController::class, 'category'])->name('category');
 // Admin panel
 
