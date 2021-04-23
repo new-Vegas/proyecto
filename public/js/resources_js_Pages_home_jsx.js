@@ -373,6 +373,32 @@ function PostCard(props) {
 
 /***/ }),
 
+/***/ "./resources/js/Pages/filter.jsx":
+/*!***************************************!*\
+  !*** ./resources/js/Pages/filter.jsx ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var filterPosts = function filterPosts(posts, query) {
+  if (!query) {
+    return posts;
+  }
+
+  return posts.filter(function (post) {
+    var postName = post.name.toLowerCase();
+    return postName.includes(query);
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (filterPosts);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/home.jsx":
 /*!*************************************!*\
   !*** ./resources/js/Pages/home.jsx ***!
@@ -388,7 +414,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/Layout */ "./resources/js/Components/Layout.jsx");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 /* harmony import */ var _Components_PostCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/PostCard */ "./resources/js/Components/PostCard.jsx");
-/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-i18next */ "./node_modules/react-i18next/dist/es/useTranslation.js");
+/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-i18next */ "./node_modules/react-i18next/dist/es/useTranslation.js");
+/* harmony import */ var _Pages_search__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Pages/search */ "./resources/js/Pages/search.jsx");
+/* harmony import */ var _Pages_filter__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Pages/filter */ "./resources/js/Pages/filter.jsx");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -407,10 +435,12 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
 var Home = function Home() {
   var posts = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.posts;
 
-  var _useTranslation = (0,react_i18next__WEBPACK_IMPORTED_MODULE_4__.useTranslation)(),
+  var _useTranslation = (0,react_i18next__WEBPACK_IMPORTED_MODULE_6__.useTranslation)(),
       t = _useTranslation.t,
       i18n = _useTranslation.i18n;
 
@@ -418,6 +448,16 @@ var Home = function Home() {
       _useState2 = _slicedToArray(_useState, 2),
       category = _useState2[0],
       setCategory = _useState2[1];
+
+  var search = window.location.search;
+  var query = new URLSearchParams(search).get('s');
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(query || ''),
+      _useState4 = _slicedToArray(_useState3, 2),
+      searchQuery = _useState4[0],
+      setSearchQuery = _useState4[1];
+
+  var filteredPosts = (0,_Pages_filter__WEBPACK_IMPORTED_MODULE_5__.default)(posts, searchQuery);
 
   document.changedCat = function (cat, cat_id) {
     setCategory(cat);
@@ -430,7 +470,9 @@ var Home = function Home() {
     className: "content"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Health 101"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, t('hero.text')))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "container mt-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, t('about')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, t('about.text.1')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, t('about.text.2')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, t('about.text.3')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, t('about.list.1')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, t('about.list.2')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, t('about.list.3')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, t('about.list.4')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, t('about.list.5'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, t('about.text.4')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", {
+    className: "text-uppercase mt-5 mb-4"
+  }, t('about')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, t('about.text.1')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, t('about.text.2')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, t('about.text.3')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, "- ", t('about.list.1')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, "- ", t('about.list.2')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, "- ", t('about.list.3')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, "- ", t('about.list.4')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, "- ", t('about.list.5'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, t('about.text.4')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
     className: "text-uppercase mt-5 mb-4"
   }, t('last post')), posts.map(function (p, i) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_PostCard__WEBPACK_IMPORTED_MODULE_3__.default, {
@@ -444,7 +486,13 @@ var Home = function Home() {
       }).join(" "),
       slug: p.slug
     });
-  })));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", {
+    className: "text-uppercase mt-5 mb-4"
+  }, t('search')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Pages_search__WEBPACK_IMPORTED_MODULE_4__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, filteredPosts.map(function (post) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+      key: post.key
+    }, post.name);
+  }))));
 };
 
 Home.layout = function (page) {
@@ -455,6 +503,48 @@ Home.layout = function (page) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Home);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/search.jsx":
+/*!***************************************!*\
+  !*** ./resources/js/Pages/search.jsx ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+
+var SearchBar = function SearchBar(_ref) {
+  var searchQuery = _ref.searchQuery,
+      setSearchQuery = _ref.setSearchQuery;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+    action: "/",
+    method: "get"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+    htmlFor: "header-search"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+    className: "visually-hidden"
+  }, "Search blog posts")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    value: searchQuery,
+    onInput: function onInput(e) {
+      return setSearchQuery(e.target.value);
+    },
+    type: "text",
+    id: "header-search",
+    placeholder: "Search blog posts",
+    name: "s"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    type: "submit"
+  }, "Search"));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SearchBar);
 
 /***/ }),
 

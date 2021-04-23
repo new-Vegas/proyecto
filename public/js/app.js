@@ -36186,6 +36186,14 @@ var map = {
 		"./resources/js/Pages/category.jsx",
 		"resources_js_Pages_category_jsx"
 	],
+	"./filter": [
+		"./resources/js/Pages/filter.jsx",
+		"resources_js_Pages_filter_jsx"
+	],
+	"./filter.jsx": [
+		"./resources/js/Pages/filter.jsx",
+		"resources_js_Pages_filter_jsx"
+	],
 	"./home": [
 		"./resources/js/Pages/home.jsx",
 		"resources_js_Pages_home_jsx"
@@ -36201,6 +36209,14 @@ var map = {
 	"./post.jsx": [
 		"./resources/js/Pages/post.jsx",
 		"resources_js_Pages_post_jsx"
+	],
+	"./search": [
+		"./resources/js/Pages/search.jsx",
+		"resources_js_Pages_search_jsx"
+	],
+	"./search.jsx": [
+		"./resources/js/Pages/search.jsx",
+		"resources_js_Pages_search_jsx"
 	],
 	"./survey-thanks": [
 		"./resources/js/Pages/survey-thanks.jsx",
@@ -36305,7 +36321,7 @@ module.exports = webpackAsyncContext;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_Pages_Survey_jsx":1,"resources_js_Pages_category_jsx":1,"resources_js_Pages_home_jsx":1,"resources_js_Pages_post_jsx":1,"resources_js_Pages_survey-thanks_jsx":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_Pages_Survey_jsx":1,"resources_js_Pages_category_jsx":1,"resources_js_Pages_filter_jsx":1,"resources_js_Pages_home_jsx":1,"resources_js_Pages_post_jsx":1,"resources_js_Pages_search_jsx":1,"resources_js_Pages_survey-thanks_jsx":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
