@@ -17,8 +17,7 @@ var filterPosts = function filterPosts(posts, query) {
   }
 
   return posts.filter(function (post) {
-    var postName = post.name.toLowerCase();
-    return postName.includes(query);
+    return post.includes(query);
   });
 };
 
