@@ -5,18 +5,48 @@ import PostCard from "../Components/PostCard";
 import { useTranslation } from 'react-i18next';
 import lunr from "lunr";
 
+var wordFilter = function (token) {
+    return token.toString().split(" ").map(function (str) {
+      return token.clone().update(function () { return str })
+    })
+}
 
 const Home = () => {
     let {posts} = usePage().props;
     const { t, i18n } = useTranslation();
     const [category, setCategory] = useState(document.CC);
-
+    var documents=[], elemento={};
+    var i;
     document.changedCat = function (cat, cat_id) {
         setCategory(cat);
     };
 
     posts = posts[category];
+    
+    for (i = 0; i <posts.length ; i++) {
+        documents[i]=[{
+            id:posts[i].id,
+            names:posts[i].names,
+            names_ES:posts[i].names_ES,
+            slug:posts[i].slug,
+            content:posts[i].content,
+            content_ES:posts[i].content_ES
+        }];
+        console.log();
+    }
 
+    const idx = lunr(function(){
+        this.ref("id");
+        this.field("names");
+        this.field("name_ES");
+        this.field("slug");
+        this.field("content");
+        this.field("content_ES");
+
+        documents.forEach(function (doc) { this.add(doc) }, this)
+    });
+
+    const r = idx.search("SINOCARE");
     return (
         <>
             <section className="hero">

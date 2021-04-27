@@ -310,7 +310,7 @@ function Layout(_ref) {
     className: "bg-dark text-white text-center p-1"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
     className: ""
-  }, "Health 101"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, "Health 101"), t("Contact"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "mt-3 footer-links d-flex flex-column flex-md-row"
   })));
 }
@@ -410,6 +410,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+var wordFilter = function wordFilter(token) {
+  return token.toString().split(" ").map(function (str) {
+    return token.clone().update(function () {
+      return str;
+    });
+  });
+};
+
 var Home = function Home() {
   var posts = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.posts;
 
@@ -422,11 +430,40 @@ var Home = function Home() {
       category = _useState2[0],
       setCategory = _useState2[1];
 
+  var documents = [],
+      elemento = {};
+  var i;
+
   document.changedCat = function (cat, cat_id) {
     setCategory(cat);
   };
 
   posts = posts[category];
+
+  for (i = 0; i < posts.length; i++) {
+    documents[i] = [{
+      id: posts[i].id,
+      names: posts[i].names,
+      names_ES: posts[i].names_ES,
+      slug: posts[i].slug,
+      content: posts[i].content,
+      content_ES: posts[i].content_ES
+    }];
+    console.log();
+  }
+
+  var idx = lunr__WEBPACK_IMPORTED_MODULE_4___default()(function () {
+    this.ref("id");
+    this.field("names");
+    this.field("name_ES");
+    this.field("slug");
+    this.field("content");
+    this.field("content_ES");
+    documents.forEach(function (doc) {
+      this.add(doc);
+    }, this);
+  });
+  var r = idx.search("SINOCARE");
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
     className: "hero"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
