@@ -42,8 +42,8 @@ div#usrLevels div.selected {
 /* Hero */
 
 section.hero {
-    background-image: url("../img/bg.jpg");
-    background-attachment: fixed;
+    background-image: url("../img/Come_Balanceado_Prop1.png");
+    background-attachment: fit;
     background-size:cover;
     height: 36vh;
     display: flex;

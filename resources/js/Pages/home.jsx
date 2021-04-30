@@ -4,18 +4,26 @@ import { usePage } from "@inertiajs/inertia-react";
 import PostCard from "../Components/PostCard";
 import { useTranslation } from 'react-i18next';
 import lunr from "lunr";
+import { filter } from "lodash";
 
-var wordFilter = function (token) {
-    return token.toString().split(" ").map(function (str) {
-      return token.clone().update(function () { return str })
-    })
+function spaceFilter(token) {
+    return Object.entries(token).map(([key, value]) => ({
+        [key]: typeof value === 'undefined' ? value.split(' ') : value
+      }));
 }
 
 const Home = () => {
     let {posts} = usePage().props;
     const { t, i18n } = useTranslation();
     const [category, setCategory] = useState(document.CC);
-    var documents=[], elemento={};
+    var documents=[{
+        id:Int16Array,
+        names:String,
+        names_ES:String,
+        slug:String,
+        content:String,
+        content_ES:String
+    }];
     var i;
     document.changedCat = function (cat, cat_id) {
         setCategory(cat);
@@ -29,12 +37,14 @@ const Home = () => {
             names:posts[i].names,
             names_ES:posts[i].names_ES,
             slug:posts[i].slug,
-            content:posts[i].content,
-            content_ES:posts[i].content_ES
+            ['content']:posts[i].content,
+            ['content_ES']:posts[i].content_ES
         }];
-        console.log();
+        console.log(typeof documents[i]);
+        
     }
 
+    console.log(documents);
     const idx = lunr(function(){
         this.ref("id");
         this.field("names");
@@ -42,7 +52,6 @@ const Home = () => {
         this.field("slug");
         this.field("content");
         this.field("content_ES");
-
         documents.forEach(function (doc) { this.add(doc) }, this)
     });
 
