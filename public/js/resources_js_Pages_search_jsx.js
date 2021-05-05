@@ -14,9 +14,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 
-var SearchBar = function SearchBar(_ref) {
-  var searchQuery = _ref.searchQuery,
-      setSearchQuery = _ref.setSearchQuery;
+var SearchBar = function SearchBar() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
     action: "/",
     method: "get"
@@ -25,10 +23,6 @@ var SearchBar = function SearchBar(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
     className: "visually-hidden"
   }, "Search blog posts")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-    value: searchQuery,
-    onInput: function onInput(e) {
-      return setSearchQuery(e.target.value);
-    },
     type: "text",
     id: "header-search",
     placeholder: "Search blog posts",

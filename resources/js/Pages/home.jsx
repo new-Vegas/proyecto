@@ -3,59 +3,46 @@ import Layout from "../Components/Layout";
 import { usePage } from "@inertiajs/inertia-react";
 import PostCard from "../Components/PostCard";
 import { useTranslation } from 'react-i18next';
-import lunr from "lunr";
-import { filter } from "lodash";
 
-function spaceFilter(token) {
-    return Object.entries(token).map(([key, value]) => ({
-        [key]: typeof value === 'undefined' ? value.split(' ') : value
-      }));
+var fetch = function (variable, clave) {
+    var i, aux1, aux2, result=0;
+    aux1 = variable.toLowerCase().split(/[!,?,., ,:,;,',",\,]/);
+    aux2 = clave.toLowerCase();
+    for(i=1; i<aux1.length;i++){
+        if(aux2.localeCompare(aux1[i])==0){result = 1; break;}
+    }
+    return result;
+}
+
+var busqueda = function(posts, clave){
+    var i, j=0, RB=[];
+    for (i = 0; i < posts.length ; i++) {
+        console.log('ID:' + posts[i].id);
+        /* if(busqueda(posts[i].name,clave)==1){RB[j]=posts[i].id;j++}
+        else if(busqueda(posts[i].name_ES,clave)==1){RB[j]=posts[i].id;j++} */
+        if(fetch(posts[i].content,clave)==1){RB[j]=posts[i].id;j++;}
+        else if(fetch(posts[i].content_ES,clave)==1){RB[j]=posts[i].id;j++;}
+    }
+    console.log(RB);
+    return RB;
 }
 
 const Home = () => {
     let {posts} = usePage().props;
     const { t, i18n } = useTranslation();
     const [category, setCategory] = useState(document.CC);
-    var documents=[{
-        id:Int16Array,
-        names:String,
-        names_ES:String,
-        slug:String,
-        content:String,
-        content_ES:String
-    }];
-    var i;
+    const [RBusqueda, setRBusqueda] = useState(sessionStorage.getItem("RBusqueda")!=null ? sessionStorage.getItem("RBusqueda").split(',').map(x=>+x) : []);
     document.changedCat = function (cat, cat_id) {
         setCategory(cat);
     };
 
     posts = posts[category];
-    
-    for (i = 0; i <posts.length ; i++) {
-        documents[i]=[{
-            id:posts[i].id,
-            names:posts[i].names,
-            names_ES:posts[i].names_ES,
-            slug:posts[i].slug,
-            ['content']:posts[i].content,
-            ['content_ES']:posts[i].content_ES
-        }];
-        console.log(typeof documents[i]);
-        
+
+    var auxFunction = function (){
+        setRBusqueda(busqueda(posts,(document.getElementById("SB") !=null? document.getElementById("SB").value : [])));
+        sessionStorage.setItem("RBusqueda",RBusqueda);
     }
 
-    console.log(documents);
-    const idx = lunr(function(){
-        this.ref("id");
-        this.field("names");
-        this.field("name_ES");
-        this.field("slug");
-        this.field("content");
-        this.field("content_ES");
-        documents.forEach(function (doc) { this.add(doc) }, this)
-    });
-
-    const r = idx.search("SINOCARE");
     return (
         <>
             <section className="hero">
@@ -83,6 +70,19 @@ const Home = () => {
                 <h2 className="text-uppercase mt-5 mb-4">{t('last post')}</h2>
                 {posts.map((p, i) => <PostCard key={i} alt={i%2==0} name_ES={p.name_ES} image={p.image} name={p.name} extract={(i18n.language === 'en' ? p.content : p.content_ES).split(' ').filter((_, i) => i < 20).join(" ")} slug={p.slug}></PostCard>)}
                 <h3 className="text-uppercase mt-5 mb-4">{t('search')}</h3>
+                <label htmlFor="header-search">
+                    <span className="visually-hidden">Search blog posts</span>
+                </label>
+                <input
+                    type="text"
+                    id="SB"
+                    placeholder="Search blog posts"
+                    name="s" 
+                    onKeyPress={() => auxFunction()}
+                />
+                <button type="submit" onClick={() => auxFunction()}>Search</button>
+                {posts.filter(x=>RBusqueda.includes(x.id)).map((p, i) => <PostCard key={i} alt={i%2==0} name_ES={p.name_ES} image={p.image} name={p.name} extract={(i18n.language === 'en' ? p.content : p.content_ES).split(' ').filter((_, i) => i < 20).join(" ")} slug={p.slug}></PostCard>)}
+                {console.log(RBusqueda)}
             </div>
         </>
     );
