@@ -43,6 +43,10 @@ const Home = () => {
         sessionStorage.setItem("RBusqueda",RBusqueda);
     }
 
+    var orderB = function(){
+        posts.filter(x=>RBusqueda.includes(x.id)).map((p, i) => <PostCard key={i} alt={i%2==0} name_ES={p.name_ES} image={p.image} name={p.name} extract={(i18n.language === 'en' ? p.content : p.content_ES).split(' ').filter((_, i) => i < 20).join(" ")} slug={p.slug}></PostCard>)
+    }
+
     return (
         <>
             <section className="hero">
@@ -78,10 +82,10 @@ const Home = () => {
                     id="SB"
                     placeholder="Search blog posts"
                     name="s" 
-                    onKeyPress={() => auxFunction()}
+                    onKeyUp={() => auxFunction()}
                 />
-                <button type="submit" onClick={() => auxFunction()}>Search</button>
-                {posts.filter(x=>RBusqueda.includes(x.id)).map((p, i) => <PostCard key={i} alt={i%2==0} name_ES={p.name_ES} image={p.image} name={p.name} extract={(i18n.language === 'en' ? p.content : p.content_ES).split(' ').filter((_, i) => i < 20).join(" ")} slug={p.slug}></PostCard>)}
+                <button type="submit" onClick={() =>{auxFunction();}}>Search</button>
+                {posts.filter(x=>RBusqueda.includes(x.id)).map((p, i) => <PostCard key={i} alt={i%2==0} name_ES={p.name_ES} image={p.image} name={p.name} extract={(i18n.language === 'en' ? p.content : p.content_ES).split(' ').filter((_, i) => i < 20).join(" ")} slug={p.slug}></PostCard>).reverse()}
                 {console.log(RBusqueda)}
             </div>
         </>

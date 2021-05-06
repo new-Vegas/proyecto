@@ -478,6 +478,24 @@ var Home = function Home() {
     sessionStorage.setItem("RBusqueda", RBusqueda);
   };
 
+  var orderB = function orderB() {
+    posts.filter(function (x) {
+      return RBusqueda.includes(x.id);
+    }).map(function (p, i) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_PostCard__WEBPACK_IMPORTED_MODULE_3__.default, {
+        key: i,
+        alt: i % 2 == 0,
+        name_ES: p.name_ES,
+        image: p.image,
+        name: p.name,
+        extract: (i18n.language === 'en' ? p.content : p.content_ES).split(' ').filter(function (_, i) {
+          return i < 20;
+        }).join(" "),
+        slug: p.slug
+      });
+    });
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
     className: "hero"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -511,13 +529,13 @@ var Home = function Home() {
     id: "SB",
     placeholder: "Search blog posts",
     name: "s",
-    onKeyPress: function onKeyPress() {
+    onKeyUp: function onKeyUp() {
       return auxFunction();
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
     type: "submit",
     onClick: function onClick() {
-      return auxFunction();
+      auxFunction();
     }
   }, "Search"), posts.filter(function (x) {
     return RBusqueda.includes(x.id);
@@ -533,7 +551,7 @@ var Home = function Home() {
       }).join(" "),
       slug: p.slug
     });
-  }), console.log(RBusqueda)));
+  }).reverse(), console.log(RBusqueda)));
 };
 
 Home.layout = function (page) {
