@@ -31,20 +31,22 @@ const Home = () => {
     let {posts} = usePage().props;
     const { t, i18n } = useTranslation();
     const [category, setCategory] = useState(document.CC);
-    const [RBusqueda, setRBusqueda] = useState(sessionStorage.getItem("RBusqueda")!=null ? sessionStorage.getItem("RBusqueda").split(',').map(x=>+x) : []);
+    const [RBusqueda, setRBusqueda] = useState(/* sessionStorage.getItem("RBusqueda")!=null ? sessionStorage.getItem("RBusqueda").split(',').map(x=>+x) : */ []);
     document.changedCat = function (cat, cat_id) {
         setCategory(cat);
     };
 
     posts = posts[category];
 
-    var auxFunction = function (){
+    var callInBusqueda = function (){
         setRBusqueda(busqueda(posts,(document.getElementById("SB") !=null? document.getElementById("SB").value : [])));
-        sessionStorage.setItem("RBusqueda",RBusqueda);
     }
 
-    var orderB = function(){
-        posts.filter(x=>RBusqueda.includes(x.id)).map((p, i) => <PostCard key={i} alt={i%2==0} name_ES={p.name_ES} image={p.image} name={p.name} extract={(i18n.language === 'en' ? p.content : p.content_ES).split(' ').filter((_, i) => i < 20).join(" ")} slug={p.slug}></PostCard>)
+    var callOutBusqueda = function (){
+        var URL = "http://www.google.com/search?q=";
+        var value = document.getElementById("SB") !=null? document.getElementById("SB").value : [];
+        var search = URL.concat(value); 
+        window.open(search,"_blank").focus();
     }
 
     return (
@@ -52,12 +54,19 @@ const Home = () => {
             <section className="hero">
                 <div className="content">
                     <h3>Health 101</h3>
-                    {/* <h5>'messages.welcome'</h5> */}
                     <p>{t('hero.text')}</p>
                 </div>
             </section>
 
             <div className="container mt-4">
+            <h3 className="text-uppercase mt-5 mb-4">{t('search')}</h3>
+                <label htmlFor="header-search">
+                    <span className="visually-hidden">Search blog posts</span>
+                </label>
+                <input type="text" id="SB" placeholder="Search blog posts" name="s" onKeyUp={() => callInBusqueda()}/>
+                <button type="submit" onClick={() =>callInBusqueda()}>Search</button>
+                <button type="submit" onClick={() =>callOutBusqueda()}>Search google</button>
+                {posts.filter(x=>RBusqueda.includes(x.id)).map((p, i) => <PostCard key={i} alt={i%2==0} name_ES={p.name_ES} image={p.image} name={p.name} extract={(i18n.language === 'en' ? p.content : p.content_ES).split(' ').filter((_, i) => i < 20).join(" ")} slug={p.slug}></PostCard>).reverse()}
                 <h3 className="text-uppercase mt-5 mb-4">{t('about')}</h3>
                 <p>{t('about.text.1')}</p>
                 <p>{t('about.text.2')}</p>
@@ -73,19 +82,6 @@ const Home = () => {
                 <p>{t('about.text.4')}</p>
                 <h2 className="text-uppercase mt-5 mb-4">{t('last post')}</h2>
                 {posts.map((p, i) => <PostCard key={i} alt={i%2==0} name_ES={p.name_ES} image={p.image} name={p.name} extract={(i18n.language === 'en' ? p.content : p.content_ES).split(' ').filter((_, i) => i < 20).join(" ")} slug={p.slug}></PostCard>)}
-                <h3 className="text-uppercase mt-5 mb-4">{t('search')}</h3>
-                <label htmlFor="header-search">
-                    <span className="visually-hidden">Search blog posts</span>
-                </label>
-                <input
-                    type="text"
-                    id="SB"
-                    placeholder="Search blog posts"
-                    name="s" 
-                    onKeyUp={() => auxFunction()}
-                />
-                <button type="submit" onClick={() =>{auxFunction();}}>Search</button>
-                {posts.filter(x=>RBusqueda.includes(x.id)).map((p, i) => <PostCard key={i} alt={i%2==0} name_ES={p.name_ES} image={p.image} name={p.name} extract={(i18n.language === 'en' ? p.content : p.content_ES).split(' ').filter((_, i) => i < 20).join(" ")} slug={p.slug}></PostCard>).reverse()}
                 {console.log(RBusqueda)}
             </div>
         </>

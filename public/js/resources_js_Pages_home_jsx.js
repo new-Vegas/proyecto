@@ -460,9 +460,9 @@ var Home = function Home() {
       category = _useState2[0],
       setCategory = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(sessionStorage.getItem("RBusqueda") != null ? sessionStorage.getItem("RBusqueda").split(',').map(function (x) {
-    return +x;
-  }) : []),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(
+  /* sessionStorage.getItem("RBusqueda")!=null ? sessionStorage.getItem("RBusqueda").split(',').map(x=>+x) : */
+  []),
       _useState4 = _slicedToArray(_useState3, 2),
       RBusqueda = _useState4[0],
       setRBusqueda = _useState4[1];
@@ -473,27 +473,15 @@ var Home = function Home() {
 
   posts = posts[category];
 
-  var auxFunction = function auxFunction() {
+  var callInBusqueda = function callInBusqueda() {
     setRBusqueda(busqueda(posts, document.getElementById("SB") != null ? document.getElementById("SB").value : []));
-    sessionStorage.setItem("RBusqueda", RBusqueda);
   };
 
-  var orderB = function orderB() {
-    posts.filter(function (x) {
-      return RBusqueda.includes(x.id);
-    }).map(function (p, i) {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_PostCard__WEBPACK_IMPORTED_MODULE_3__.default, {
-        key: i,
-        alt: i % 2 == 0,
-        name_ES: p.name_ES,
-        image: p.image,
-        name: p.name,
-        extract: (i18n.language === 'en' ? p.content : p.content_ES).split(' ').filter(function (_, i) {
-          return i < 20;
-        }).join(" "),
-        slug: p.slug
-      });
-    });
+  var callOutBusqueda = function callOutBusqueda() {
+    var URL = "http://www.google.com/search?q=";
+    var value = document.getElementById("SB") != null ? document.getElementById("SB").value : [];
+    var search = URL.concat(value);
+    window.open(search, "_blank").focus();
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
@@ -503,6 +491,44 @@ var Home = function Home() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Health 101"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, t('hero.text')))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "container mt-4"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", {
+    className: "text-uppercase mt-5 mb-4"
+  }, t('search')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+    htmlFor: "header-search"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+    className: "visually-hidden"
+  }, "Search blog posts")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "text",
+    id: "SB",
+    placeholder: "Search blog posts",
+    name: "s",
+    onKeyUp: function onKeyUp() {
+      return callInBusqueda();
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    type: "submit",
+    onClick: function onClick() {
+      return callInBusqueda();
+    }
+  }, "Search"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    type: "submit",
+    onClick: function onClick() {
+      return callOutBusqueda();
+    }
+  }, "Search google"), posts.filter(function (x) {
+    return RBusqueda.includes(x.id);
+  }).map(function (p, i) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_PostCard__WEBPACK_IMPORTED_MODULE_3__.default, {
+      key: i,
+      alt: i % 2 == 0,
+      name_ES: p.name_ES,
+      image: p.image,
+      name: p.name,
+      extract: (i18n.language === 'en' ? p.content : p.content_ES).split(' ').filter(function (_, i) {
+        return i < 20;
+      }).join(" "),
+      slug: p.slug
+    });
+  }).reverse(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", {
     className: "text-uppercase mt-5 mb-4"
   }, t('about')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, t('about.text.1')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, t('about.text.2')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, t('about.text.3')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, "- ", t('about.list.1')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, "- ", t('about.list.2')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, "- ", t('about.list.3')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, "- ", t('about.list.4')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, "- ", t('about.list.5'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, t('about.text.4')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
     className: "text-uppercase mt-5 mb-4"
@@ -518,40 +544,7 @@ var Home = function Home() {
       }).join(" "),
       slug: p.slug
     });
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", {
-    className: "text-uppercase mt-5 mb-4"
-  }, t('search')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
-    htmlFor: "header-search"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-    className: "visually-hidden"
-  }, "Search blog posts")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-    type: "text",
-    id: "SB",
-    placeholder: "Search blog posts",
-    name: "s",
-    onKeyUp: function onKeyUp() {
-      return auxFunction();
-    }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-    type: "submit",
-    onClick: function onClick() {
-      auxFunction();
-    }
-  }, "Search"), posts.filter(function (x) {
-    return RBusqueda.includes(x.id);
-  }).map(function (p, i) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_PostCard__WEBPACK_IMPORTED_MODULE_3__.default, {
-      key: i,
-      alt: i % 2 == 0,
-      name_ES: p.name_ES,
-      image: p.image,
-      name: p.name,
-      extract: (i18n.language === 'en' ? p.content : p.content_ES).split(' ').filter(function (_, i) {
-        return i < 20;
-      }).join(" "),
-      slug: p.slug
-    });
-  }).reverse(), console.log(RBusqueda)));
+  }), console.log(RBusqueda)));
 };
 
 Home.layout = function (page) {
