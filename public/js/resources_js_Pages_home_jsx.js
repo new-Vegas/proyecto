@@ -431,10 +431,8 @@ var busqueda = function busqueda(posts, clave) {
       RB = [];
 
   for (i = 0; i < posts.length; i++) {
-    console.log('ID:' + posts[i].id);
     /* if(busqueda(posts[i].name,clave)==1){RB[j]=posts[i].id;j++}
     else if(busqueda(posts[i].name_ES,clave)==1){RB[j]=posts[i].id;j++} */
-
     if (fetch(posts[i].content, clave) == 1) {
       RB[j] = posts[i].id;
       j++;
@@ -460,9 +458,7 @@ var Home = function Home() {
       category = _useState2[0],
       setCategory = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(
-  /* sessionStorage.getItem("RBusqueda")!=null ? sessionStorage.getItem("RBusqueda").split(',').map(x=>+x) : */
-  []),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState4 = _slicedToArray(_useState3, 2),
       RBusqueda = _useState4[0],
       setRBusqueda = _useState4[1];
@@ -481,7 +477,7 @@ var Home = function Home() {
     var URL = "http://www.google.com/search?q=";
     var value = document.getElementById("SB") != null ? document.getElementById("SB").value : [];
     var search = URL.concat(value);
-    window.open(search, "_blank").focus();
+    window.open(search).focus();
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
@@ -508,12 +504,14 @@ var Home = function Home() {
     type: "submit",
     onClick: function onClick() {
       return callInBusqueda();
-    }
+    },
+    className: "btn btn-sm btn-custom-light"
   }, "Search"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
     type: "submit",
     onClick: function onClick() {
       return callOutBusqueda();
-    }
+    },
+    className: "btn btn-sm btn-custom-light"
   }, "Search google"), posts.filter(function (x) {
     return RBusqueda.includes(x.id);
   }).map(function (p, i) {

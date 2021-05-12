@@ -17,7 +17,6 @@ var fetch = function (variable, clave) {
 var busqueda = function(posts, clave){
     var i, j=0, RB=[];
     for (i = 0; i < posts.length ; i++) {
-        console.log('ID:' + posts[i].id);
         /* if(busqueda(posts[i].name,clave)==1){RB[j]=posts[i].id;j++}
         else if(busqueda(posts[i].name_ES,clave)==1){RB[j]=posts[i].id;j++} */
         if(fetch(posts[i].content,clave)==1){RB[j]=posts[i].id;j++;}
@@ -31,7 +30,7 @@ const Home = () => {
     let {posts} = usePage().props;
     const { t, i18n } = useTranslation();
     const [category, setCategory] = useState(document.CC);
-    const [RBusqueda, setRBusqueda] = useState(/* sessionStorage.getItem("RBusqueda")!=null ? sessionStorage.getItem("RBusqueda").split(',').map(x=>+x) : */ []);
+    const [RBusqueda, setRBusqueda] = useState([]);
     document.changedCat = function (cat, cat_id) {
         setCategory(cat);
     };
@@ -46,7 +45,7 @@ const Home = () => {
         var URL = "http://www.google.com/search?q=";
         var value = document.getElementById("SB") !=null? document.getElementById("SB").value : [];
         var search = URL.concat(value); 
-        window.open(search,"_blank").focus();
+        window.open(search).focus();
     }
 
     return (
@@ -64,8 +63,8 @@ const Home = () => {
                     <span className="visually-hidden">Search blog posts</span>
                 </label>
                 <input type="text" id="SB" placeholder="Search blog posts" name="s" onKeyUp={() => callInBusqueda()}/>
-                <button type="submit" onClick={() =>callInBusqueda()}>Search</button>
-                <button type="submit" onClick={() =>callOutBusqueda()}>Search google</button>
+                <button type="submit" onClick={() =>callInBusqueda()} className="btn btn-sm btn-custom-light">Search</button>
+                <button type="submit" onClick={() =>callOutBusqueda()} className="btn btn-sm btn-custom-light">Search google</button>
                 {posts.filter(x=>RBusqueda.includes(x.id)).map((p, i) => <PostCard key={i} alt={i%2==0} name_ES={p.name_ES} image={p.image} name={p.name} extract={(i18n.language === 'en' ? p.content : p.content_ES).split(' ').filter((_, i) => i < 20).join(" ")} slug={p.slug}></PostCard>).reverse()}
                 <h3 className="text-uppercase mt-5 mb-4">{t('about')}</h3>
                 <p>{t('about.text.1')}</p>
