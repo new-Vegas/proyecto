@@ -1,4 +1,5 @@
 import React from 'react'
+import postsSeen from "../Components/seenPosts";
 
 export default function PostMini({name, extract, slug, image}) {
     
@@ -13,7 +14,7 @@ export default function PostMini({name, extract, slug, image}) {
         <h3>{name}</h3>
         <p>{extract} ...</p>
         <div className="custom-card-footer">
-            <a href={slug} className="btn btn-sm btn-custom-light">Read more</a>
+            <a href={slug} className="btn btn-sm btn-custom-light" onClick={()=>postsSeen(props)}>Read more</a>
         </div>
     </div>
 </div>

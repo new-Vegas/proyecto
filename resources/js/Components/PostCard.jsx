@@ -1,14 +1,16 @@
 import React from 'react';
 import {InertiaLink} from '@inertiajs/inertia-react';
 import {useTranslation} from 'react-i18next';
+import postsSeen from "../Components/seenPosts";
 
 export default function PostCard(props) {
     const { i18n, t } = useTranslation();
-    const {alt, image, name, name_ES, extract, slug} = props;
+    const {id, alt, image, name, name_ES, extract, slug} = props;
 
     function MyComponent() {
         return <div dangerouslySetInnerHTML={{__html: extract}} />;
     }
+
     return (
         <div className={`card post-card ${alt ? 'post-card-alt' : ''}`}>
             <div className="image-container">
@@ -19,7 +21,7 @@ export default function PostCard(props) {
 
                 <MyComponent></MyComponent>
                 <div className="custom-card-footer">
-                    <InertiaLink href={`/post/${slug}`} className="btn btn-sm btn-custom-light">{t('Read more')}</InertiaLink>
+                    <InertiaLink href={`/post/${slug}`} className="btn btn-sm btn-custom-light" onClick={()=>postsSeen(props)}>{t('Read more')}</InertiaLink>
                 </div>
             </div>
         </div>

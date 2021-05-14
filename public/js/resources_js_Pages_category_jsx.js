@@ -330,16 +330,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-i18next */ "./node_modules/react-i18next/dist/es/useTranslation.js");
+/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-i18next */ "./node_modules/react-i18next/dist/es/useTranslation.js");
+/* harmony import */ var _Components_seenPosts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/seenPosts */ "./resources/js/Components/seenPosts.jsx");
+
 
 
 
 function PostCard(props) {
-  var _useTranslation = (0,react_i18next__WEBPACK_IMPORTED_MODULE_2__.useTranslation)(),
+  var _useTranslation = (0,react_i18next__WEBPACK_IMPORTED_MODULE_3__.useTranslation)(),
       i18n = _useTranslation.i18n,
       t = _useTranslation.t;
 
-  var alt = props.alt,
+  var id = props.id,
+      alt = props.alt,
       image = props.image,
       name = props.name,
       name_ES = props.name_ES,
@@ -367,8 +370,39 @@ function PostCard(props) {
     className: "custom-card-footer"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.InertiaLink, {
     href: "/post/".concat(slug),
-    className: "btn btn-sm btn-custom-light"
+    className: "btn btn-sm btn-custom-light",
+    onClick: function onClick() {
+      return (0,_Components_seenPosts__WEBPACK_IMPORTED_MODULE_2__.default)(props);
+    }
   }, t('Read more')))));
+}
+
+/***/ }),
+
+/***/ "./resources/js/Components/seenPosts.jsx":
+/*!***********************************************!*\
+  !*** ./resources/js/Components/seenPosts.jsx ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ postsSeen)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+window.pc = [];
+function postsSeen(posts) {
+  var i,
+      seen = 0;
+
+  for (i = 0; i < pc.length; i++) {
+    if (pc[i] == posts.id) seen++;
+  }
+
+  if (seen != 1) pc[pc.length++] = posts.id;
+  console.log(pc);
 }
 
 /***/ }),

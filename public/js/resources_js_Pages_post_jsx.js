@@ -329,6 +329,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ PostMini)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Components_seenPosts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/seenPosts */ "./resources/js/Components/seenPosts.jsx");
+
 
 function PostMini(_ref) {
   var name = _ref.name,
@@ -349,8 +351,39 @@ function PostMini(_ref) {
     className: "custom-card-footer"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: slug,
-    className: "btn btn-sm btn-custom-light"
+    className: "btn btn-sm btn-custom-light",
+    onClick: function onClick() {
+      return (0,_Components_seenPosts__WEBPACK_IMPORTED_MODULE_1__.default)(props);
+    }
   }, "Read more"))));
+}
+
+/***/ }),
+
+/***/ "./resources/js/Components/seenPosts.jsx":
+/*!***********************************************!*\
+  !*** ./resources/js/Components/seenPosts.jsx ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ postsSeen)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+window.pc = [];
+function postsSeen(posts) {
+  var i,
+      seen = 0;
+
+  for (i = 0; i < pc.length; i++) {
+    if (pc[i] == posts.id) seen++;
+  }
+
+  if (seen != 1) pc[pc.length++] = posts.id;
+  console.log(pc);
 }
 
 /***/ }),
