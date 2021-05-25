@@ -30,6 +30,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+window.searchVal = 0;
 function Layout(_ref) {
   var title = _ref.title,
       children = _ref.children;
@@ -70,6 +71,17 @@ function Layout(_ref) {
     document.querySelector('a.btnLogout').click();
   };
 
+  var setsearchVal = function setsearchVal() {
+    window.searchVal = document.getElementById("SB") != null ? document.getElementById("SB").value : '';
+  };
+
+  var callOutBusqueda = function callOutBusqueda() {
+    var URL = "http://www.google.com/search?q=";
+    var value = document.getElementById("SB") != null ? document.getElementById("SB").value : [];
+    var search = URL.concat(value);
+    window.open(search).focus();
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "custom-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("nav", {
@@ -106,7 +118,24 @@ function Layout(_ref) {
     }, c.EN_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
       className: i18n.language != 'es' ? 'hidden' : ''
     }, c.ES_name)));
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "text",
+    id: "SB",
+    placeholder: t('searchBar'),
+    name: "s"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.InertiaLink, {
+    className: "btn btn-sm btn-custom-light",
+    href: "/search/",
+    onClick: function onClick() {
+      return setsearchVal();
+    }
+  }, "Search"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    type: "submit",
+    onClick: function onClick() {
+      return callOutBusqueda();
+    },
+    className: "btn btn-sm btn-custom-light"
+  }, "Search in Google"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
     className: "navbar-text lang-section"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h6", null, loggedIn ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "/dashboard",

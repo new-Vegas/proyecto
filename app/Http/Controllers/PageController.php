@@ -105,17 +105,18 @@ class PageController extends Controller
     
     public function search(Request $request){
         // Get the search value from the request
-        $search = $request->input('search');
-    
+        $types = UserType::all();
         // Search in the title and body columns from the posts table
-        $posts = Post::query()
-            ->where('name', 'LIKE', "%{$search}%")
-            ->orWhere('name_ES', 'LIKE', "%{$search}%")
-            ->orWhere('content', 'LIKE', "%{$search}%")
-            ->orWhere('content_ES', 'LIKE', "%{$search}%")
-            ->get();
-    
+        $posts = [];
+
+        foreach ($types as $tp) {
+            $posts[$tp->name] = Post::latest()->with('user')->where('usr_type_id', $tp->id)->take(8)->get();
+        }
         // Return the search view with the resluts compacted
-        return view('search', compact('posts'));
+        return Inertia::render('search',[
+            'categories' => Category::all(),
+            'types' => $types,
+            'posts' => $posts
+        ]);
     }
 }

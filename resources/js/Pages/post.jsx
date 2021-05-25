@@ -4,12 +4,31 @@ import { usePage, InertiaLink } from "@inertiajs/inertia-react";
 import { useTranslation } from 'react-i18next';
 import PostMini from "../Components/PostMini";
 
+
+/**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    var disqus_config = function () {
+    this.page.url = 'http://127.0.0.1:8000/post/'+post.slug;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = post.slug; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    var chat = function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://proyectois.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    };
+
+
+
 const Home = () => {
     const {p, similar} = usePage().props;
     const { t, i18n } = useTranslation();
     let post = p.post;
 
     return (
+
         <div className="main-content">
 
         <nav aria-label="breadcrumb" className="mt-4 mt-md-5">
@@ -25,7 +44,7 @@ const Home = () => {
                 <section className="hero">
                     <img src={post.image}></img>
                 </section>
-        
+                  {chat()}
                 <div className="post-card details p-5">
                     <h3>{i18n.language === 'en' ? post.name : post.name_ES}</h3>
                     <div dangerouslySetInnerHTML={{__html: i18n.language === 'en' ? post.content : post.content_ES}} />
@@ -37,16 +56,17 @@ const Home = () => {
                 {similar.map((s, i) => <PostMini key={i} name={i18n.language === 'en' ? s.name : s.name_ES} slug={s.slug} image={s.image} extract={(i18n.language === 'en' ? s.content : s.content_ES).split(' ').filter((_, i) => i < 10).join(" ")}></PostMini>)}
 
             </div>
-        
+            <div id="disqus_thread"></div>
+                            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             <div className="container col-12 d-none">
-        
+
                 {/* <form action="" className="mt-5 mb-5 message">
                     <div className="row m-0">
-            
+
                         <div className="col-10">
                             <input type="text" className="form-control" placeholder="Comment here . . . "></input>
                         </div>
-            
+
                         <div className="col-1">
                             <button type="submit" className="btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chat" viewBox="0 0 16 16">
@@ -63,7 +83,7 @@ const Home = () => {
                         Martin - Hello!
                     </p>
                 </div>
-        
+
                 <div className="card d-flex flex-row mx-4 mt-4 mt-md-2 vertical-align-center p-3 p-md-2 comment">
                     <img src="https://www.pinclipart.com/picdir/middle/148-1486972_mystery-man-avatar-circle-clipart.png" alt="user"></img>
                     <p>

@@ -30,6 +30,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+window.searchVal = 0;
 function Layout(_ref) {
   var title = _ref.title,
       children = _ref.children;
@@ -70,6 +71,17 @@ function Layout(_ref) {
     document.querySelector('a.btnLogout').click();
   };
 
+  var setsearchVal = function setsearchVal() {
+    window.searchVal = document.getElementById("SB") != null ? document.getElementById("SB").value : '';
+  };
+
+  var callOutBusqueda = function callOutBusqueda() {
+    var URL = "http://www.google.com/search?q=";
+    var value = document.getElementById("SB") != null ? document.getElementById("SB").value : [];
+    var search = URL.concat(value);
+    window.open(search).focus();
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "custom-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("nav", {
@@ -106,7 +118,24 @@ function Layout(_ref) {
     }, c.EN_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
       className: i18n.language != 'es' ? 'hidden' : ''
     }, c.ES_name)));
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "text",
+    id: "SB",
+    placeholder: t('searchBar'),
+    name: "s"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.InertiaLink, {
+    className: "btn btn-sm btn-custom-light",
+    href: "/search/",
+    onClick: function onClick() {
+      return setsearchVal();
+    }
+  }, "Search"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    type: "submit",
+    onClick: function onClick() {
+      return callOutBusqueda();
+    },
+    className: "btn btn-sm btn-custom-light"
+  }, "Search in Google"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
     className: "navbar-text lang-section"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h6", null, loggedIn ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "/dashboard",
@@ -281,6 +310,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+/**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+var disqus_config = function disqus_config() {
+  this.page.url = 'http://127.0.0.1:8000/post/' + post.slug; // Replace PAGE_URL with your page's canonical URL variable
+
+  this.page.identifier = post.slug; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+var chat = function chat() {
+  // DON'T EDIT BELOW THIS LINE
+  var d = document,
+      s = d.createElement('script');
+  s.src = 'https://proyectois.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+};
 
 var Home = function Home() {
   var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.usePage)().props,
@@ -314,7 +361,7 @@ var Home = function Home() {
     className: "hero"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: post.image
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  })), chat(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "post-card details p-5"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, i18n.language === 'en' ? post.name : post.name_ES), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     dangerouslySetInnerHTML: {
@@ -334,6 +381,10 @@ var Home = function Home() {
       }).join(" ")
     });
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    id: "disqus_thread"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("noscript", null, "Please enable JavaScript to view the ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+    href: "https://disqus.com/?ref_noscript"
+  }, "comments powered by Disqus.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "container col-12 d-none"
   })));
 };

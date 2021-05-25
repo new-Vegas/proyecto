@@ -3,7 +3,10 @@ import { InertiaLink } from "@inertiajs/inertia-react";
 import { useTranslation } from 'react-i18next';
 import { usePage } from "@inertiajs/inertia-react";
 
+window.searchVal = 0;
+
 export default function Layout({ title, children }) {
+
     useEffect(() => {
         document.title = title;
     }, [title]);
@@ -32,6 +35,17 @@ export default function Layout({ title, children }) {
         document.querySelector('a.btnLogout').click();
     };
 
+    var setsearchVal = function (){
+        window.searchVal = document.getElementById("SB")!=null?document.getElementById("SB").value : '';
+    }
+
+    var callOutBusqueda = function (){
+        var URL = "http://www.google.com/search?q=";
+        var value = document.getElementById("SB") !=null? document.getElementById("SB").value : [];
+        var search = URL.concat(value); 
+        window.open(search).focus();
+    }
+
     return (
             <div className="custom-container">
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -56,7 +70,6 @@ export default function Layout({ title, children }) {
                         <div className="collapse navbar-collapse" id="navbarNav">
                             <ul className="navbar-nav me-auto">
                                 {categories.map((c, i) => (
-
                                     <li className="nav-item" key={i}>
                                         <InertiaLink className={`nav-link ${document.location.pathname.includes(c.slug) ? 'active' : ''}`} href={`/Category/${c.slug}`}>
                                             <span className={i18n.language != 'en' ? 'hidden' : ''}>{c.EN_name}</span>
@@ -65,6 +78,11 @@ export default function Layout({ title, children }) {
                                     </li>
                                 ))}
                             </ul>
+                            
+                            <input type="text" id="SB" placeholder={t('searchBar')} name="s"/>
+                            <InertiaLink className="btn btn-sm btn-custom-light" href={`/search/`} onClick={() =>setsearchVal()}>Search</InertiaLink>
+                            <button type="submit" onClick={() =>callOutBusqueda()} className="btn btn-sm btn-custom-light">Search in Google</button>
+                            
                             <section className="navbar-text lang-section">
                                 <h6>
                                     {loggedIn ? (
