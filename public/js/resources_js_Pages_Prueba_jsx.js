@@ -348,24 +348,6 @@ var signin = function signin(correo) {
   /*instrucciones para sql*/
 };
 
-var mysql = __webpack_require__(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'mysql'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "yourusername",
-  password: "yourpassword",
-  database: "mydb"
-});
-con.connect(function (err) {
-  if (err) throw err;
-  console.log("Connected!");
-  var sql = "INSERT INTO customers (name, address) VALUES ('Company Inc', 'Highway 37')";
-  con.query(sql, function (err, result) {
-    if (err) throw err;
-    console.log("1 record inserted");
-  });
-});
-
 var Home = function Home() {
   var posts = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.posts;
 

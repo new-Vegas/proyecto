@@ -30,7 +30,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-window.searchVal = 0;
+window.searchVal = '';
 function Layout(_ref) {
   var title = _ref.title,
       children = _ref.children;

@@ -30,7 +30,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-window.searchVal = 0;
+window.searchVal = '';
 function Layout(_ref) {
   var title = _ref.title,
       children = _ref.children;
@@ -342,8 +342,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var searchOnce = false;
-/* window.dayPost = 0; */
 
 var fetch = function fetch(variable, clave) {
   var i,
@@ -363,31 +361,26 @@ var fetch = function fetch(variable, clave) {
   return result;
 };
 
-var busqueda = function busqueda(posts, clave) {
+var busqueda = function busqueda(post, clave) {
   var i,
       j = 0,
       RB = [];
 
-  for (i = 0; i < posts.length; i++) {
+  for (i = 0; i < post.length; i++) {
     /* if(busqueda(posts[i].name,clave)==1){RB[j]=posts[i].id;j++}
     else if(busqueda(posts[i].name_ES,clave)==1){RB[j]=posts[i].id;j++} */
-    if (fetch(posts[i].content, clave) == 1) {
-      RB[j] = posts[i].id;
+    if (fetch(post[i].content, clave) == 1) {
+      RB[j] = post[i].id;
       j++;
-    } else if (fetch(posts[i].content_ES, clave) == 1) {
-      RB[j] = posts[i].id;
+    } else if (fetch(post[i].content_ES, clave) == 1) {
+      RB[j] = post[i].id;
       j++;
     }
   }
 
   console.log(RB);
-  searchOnce = true;
   return RB;
 };
-/* var randomPost = function(){
-    window.dayPost = 0;
-} */
-
 
 var Home = function Home() {
   var _useTranslation = (0,react_i18next__WEBPACK_IMPORTED_MODULE_4__.useTranslation)(),
@@ -401,16 +394,12 @@ var Home = function Home() {
       category = _useState2[0],
       setCategory = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  posts = posts[category];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(busqueda(posts, window.searchVal)),
       _useState4 = _slicedToArray(_useState3, 2),
       RBusqueda = _useState4[0],
       setRBusqueda = _useState4[1];
-  /* const [postRand, setpostRand] = useState(); */
-
-
-  posts = posts[category];
-  if (!searchOnce) setRBusqueda(busqueda(posts, window.searchVal != null ? window.searchVal : []));
-  /* if(!searchOnce)setpostRand(window.dayPost); */
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "main-content"

@@ -3,7 +3,7 @@ import { InertiaLink } from "@inertiajs/inertia-react";
 import { useTranslation } from 'react-i18next';
 import { usePage } from "@inertiajs/inertia-react";
 
-window.searchVal = 0;
+window.searchVal = '';
 
 export default function Layout({ title, children }) {
 

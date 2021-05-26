@@ -37221,14 +37221,6 @@ module.exports = function getSideChannel() {
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var map = {
-	"./Prueba": [
-		"./resources/js/Pages/Prueba.jsx",
-		"resources_js_Pages_Prueba_jsx"
-	],
-	"./Prueba.jsx": [
-		"./resources/js/Pages/Prueba.jsx",
-		"resources_js_Pages_Prueba_jsx"
-	],
 	"./Survey": [
 		"./resources/js/Pages/Survey.jsx",
 		"resources_js_Pages_Survey_jsx"
@@ -37399,7 +37391,7 @@ module.exports = webpackAsyncContext;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_Pages_Prueba_jsx":1,"resources_js_Pages_Survey_jsx":1,"resources_js_Pages_category_jsx":1,"resources_js_Pages_home_jsx":1,"resources_js_Pages_post_jsx":1,"resources_js_Pages_search_jsx":1,"resources_js_Pages_survey-thanks_jsx":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_Pages_Survey_jsx":1,"resources_js_Pages_category_jsx":1,"resources_js_Pages_home_jsx":1,"resources_js_Pages_post_jsx":1,"resources_js_Pages_search_jsx":1,"resources_js_Pages_survey-thanks_jsx":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
