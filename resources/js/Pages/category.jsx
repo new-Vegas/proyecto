@@ -36,7 +36,7 @@ const Category = () => {
                 <span className={i18n.language != 'es' ? 'hidden' : ''}>{category.ES_name}</span>
             </h2>
 
-            {posts.filter(p => p.usr_type_id === utype).map((p, i) => <PostCard key={i} alt={i%2==0} name_ES={p.name_ES} image={p.image} name={p.name} extract={(i18n.language === 'en' ? p.content : p.content_ES).split(' ').filter((_, i) => i < 20).join(" ")} slug={p.slug}></PostCard>)}
+            {posts.filter(p => p.usr_type_id === utype).reverse().map((p, i) => <PostCard key={i} alt={i%2==0} name_ES={p.name_ES} image={p.image} name={p.name} extract={(i18n.language === 'en' ? p.content : p.content_ES).split(' ').filter((_, i) => i < 20).join(" ")} slug={p.slug}></PostCard>)}
         </div>
     </div>
     );

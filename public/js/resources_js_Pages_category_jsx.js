@@ -390,7 +390,7 @@ var Category = function Category() {
     className: i18n.language != 'es' ? 'hidden' : ''
   }, category.ES_name)), posts.filter(function (p) {
     return p.usr_type_id === utype;
-  }).map(function (p, i) {
+  }).reverse().map(function (p, i) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_PostCard__WEBPACK_IMPORTED_MODULE_3__.default, {
       key: i,
       alt: i % 2 == 0,

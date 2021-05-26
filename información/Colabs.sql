@@ -13,7 +13,7 @@ VALUES (1, 1, 'Tanya P De Jesús-Rodríguez', 'Tanya P De Jesús-Rodríguez', 'T
 INSERT INTO posts (user_id, usr_type_id, name, name_ES, slug, image, content, content_ES, enabled)  /*se genera el post*/
 VALUES (1, 1, 'ALAIC COORDINACIÓN GT Comunicación y Salud', 'ALAIC COORDINACIÓN GT Comunicación y Salud','ACGTCS', 'https://www.cimec.co.za/wp-content/uploads/2018/07/4-Unique-Placeholder-Image-Services-for-Designers.png ', 'ALAIC COORDINACIÓN GT Comunicación y Salud, https://www.alaic.org/ alaic.gtcys.coordinacion@gmail.com', 'ALAIC COORDINACIÓN GT Comunicación y Salud, https://www.alaic.org/ alaic.gtcys.coordinacion@gmail.com', 1);
 
-INSERT INTO category_posts (post_id, category_id) VALUES (2, 2);/*se anexa el post a una categoria , revisa ccon cual Id se genero el post de la liena anterior */
+INSERT INTO category_posts (post_id, category_id) VALUES (2, 2);
 INSERT INTO category_posts (post_id, category_id) VALUES (3, 2);
 INSERT INTO category_posts (post_id, category_id) VALUES (4, 2);
 INSERT INTO category_posts (post_id, category_id) VALUES (5, 2);

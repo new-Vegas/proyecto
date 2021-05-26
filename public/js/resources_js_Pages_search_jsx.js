@@ -419,7 +419,7 @@ var Home = function Home() {
     className: "row"
   }, posts.filter(function (x) {
     return RBusqueda.includes(x.id);
-  }).map(function (p, i) {
+  }).reverse().map(function (p, i) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_PostCard__WEBPACK_IMPORTED_MODULE_3__.default, {
       id: p.id,
       key: i,
@@ -429,7 +429,7 @@ var Home = function Home() {
       name: p.name,
       extract: (i18n.language === 'en' ? p.content : p.content_ES).split(' ').filter(function (_, i) {
         return i < 20;
-      }).join(" "),
+      }).join(" ").reverse(),
       slug: p.slug
     });
   })));

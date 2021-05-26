@@ -373,7 +373,7 @@ var Home = function Home() {
     className: "text-uppercase mt-5 mb-4"
   }, t('last post')), posts.filter(function (x) {
     return !window.pc.includes(x.id);
-  }).map(function (p, i) {
+  }).reverse().map(function (p, i) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_PostCard__WEBPACK_IMPORTED_MODULE_3__.default, {
       id: p.id,
       key: i,
