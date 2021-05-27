@@ -47,7 +47,7 @@ const Home = () => {
                 <p>deja aqui tus sugerencias</p>
               <button type="submit" onClick={event =>  window.location.href='/sugerencias'}className="btn btn-sm btn-custom-light">Click here</button>
             </div>
-            </div>
+            
         </>
     );
 };

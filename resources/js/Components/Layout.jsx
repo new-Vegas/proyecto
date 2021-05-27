@@ -157,6 +157,7 @@ export default function Layout({ title, children }) {
                         <InertiaLink>Ad Choices</InertiaLink>
                         <InertiaLink>Web Accessibility</InertiaLink> */}
                     </div>
+                    <InertiaLink className="btn btn-sm btn-custom-light" href={`/subscription/`} >Subscribe</InertiaLink>
                 </footer>
             </div>
     );
