@@ -119,4 +119,21 @@ class PageController extends Controller
             'posts' => $posts
         ]);
     }
+    
+      public function sugerencias(Request $request){
+        // Get the search value from the request
+        $types = UserType::all();
+        // Search in the title and body columns from the posts table
+        $posts = [];
+
+        foreach ($types as $tp) {
+            $posts[$tp->name] = Post::latest()->with('user')->where('usr_type_id', $tp->id)->take(8)->get();
+        }
+        // Return the search view with the resluts compacted
+        return Inertia::render('sugerencias',[
+            'categories' => Category::all(),
+            'types' => $types,
+            'posts' => $posts
+        ]);
+    }
 }
