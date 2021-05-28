@@ -31,8 +31,9 @@ const Home = () => {
     return (
 
         <div align='center' className="main-content">
-           <img src="https://blog.total.es/wp-content/uploads/2020/07/iStock-1152176251_blog-650x460.jpg"
-                ></img>
+           src="https://contexto.udlap.mx/wp-content/uploads/2020/04/Buz%C3%B3n-de-quejas-2048x1000_c.png"
+                width="980"
+                height="374"
             <p> 
              <h3>Tu sugerencia es importate para nosotros, nos ayudarias a mejorar cada vez el contenido de la página.
             </h3>
