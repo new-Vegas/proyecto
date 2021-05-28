@@ -30,16 +30,12 @@ const Home = () => {
 
     return (
 
-        <div className="main-content">
-            <img src="https://blog.total.es/wp-content/uploads/2020/07/iStock-1152176251_blog-650x460.jpg"
+        <div align='center' className="main-content">
+           <img src="https://blog.total.es/wp-content/uploads/2020/07/iStock-1152176251_blog-650x460.jpg"
                 ></img>
-            <p> Los que conformarmos este equipo, nos importa tus sugerencias para el mejoramiento de nuestro contenido, ayudanos a crecer juntos.
-            
-            <img src="https://blog.total.es/wp-content/uploads/2020/07/iStock-1152176251_blog-650x460.jpg"
-                width="602"
-                height="274"
-                ></img>
-            
+            <p> 
+             <h3>Tu sugerencia es importate para nosotros, nos ayudarias a mejorar cada vez el contenido de la página.
+            </h3>
             </p>
               {chat()}
             <div id="disqus_thread"></div>
