@@ -31,7 +31,16 @@ const Home = () => {
     return (
 
         <div className="main-content">
-            <p>Hola Munasdsddo!</p>
+            <img src="https://blog.total.es/wp-content/uploads/2020/07/iStock-1152176251_blog-650x460.jpg"
+                ></img>
+            <p> Los que conformarmos este equipo, nos importa tus sugerencias para el mejoramiento de nuestro contenido, ayudanos a crecer juntos.
+            
+            <img src="https://blog.total.es/wp-content/uploads/2020/07/iStock-1152176251_blog-650x460.jpg"
+                width="602"
+                height="274"
+                ></img>
+            
+            </p>
               {chat()}
             <div id="disqus_thread"></div>
                             <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
