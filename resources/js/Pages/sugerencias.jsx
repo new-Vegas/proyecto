@@ -31,10 +31,10 @@ const Home = () => {
     return (
 
         <div align='center' className="main-content">
-            <img  src="https://contexto.udlap.mx/wp-content/uploads/2020/04/Buz%C3%B3n-de-quejas-2048x1000_c.png"
-                width="980"
-                height="374"
-                ></img> 
+             <img  src="https://media.istockphoto.com/photos/message-board-picture-id1165735039?k=6&m=1165735039&s=612x612&w=0&h=Lm2j3PMJQtxJjonMwMG9MFADZt7Og09ItOol4x6Olz0="
+                width="780"
+                height="390"
+                ></img>
             <p> 
              <h3>Tu sugerencia es importate para nosotros, nos ayudarias a mejorar cada vez el contenido de la página.
             </h3>
