@@ -80,8 +80,8 @@ export default function Layout({ title, children }) {
                             </ul>
                             
                             <input type="text" id="SB" placeholder={t('searchBar')} name="s"/>
-                            <InertiaLink className="btn btn-sm btn-custom-light" href={`/search/`} onClick={() =>setsearchVal()}>Search</InertiaLink>
-                            <button type="submit" onClick={() =>callOutBusqueda()} className="btn btn-sm btn-custom-light">Search in Google</button>
+                            <InertiaLink className="btn btn-sm btn-custom-light" href={`/search/`} onClick={() =>setsearchVal()}>{t('search')}</InertiaLink>
+                            <button type="submit" onClick={() =>callOutBusqueda()} className="btn btn-sm btn-custom-light">{t('searchGoogle')}</button>
                             
                             <section className="navbar-text lang-section">
                                 <h6>

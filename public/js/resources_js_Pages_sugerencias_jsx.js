@@ -1,4 +1,4 @@
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_Pages_home_jsx"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_Pages_sugerencias_jsx"],{
 
 /***/ "./resources/js/Components/Layout.jsx":
 /*!********************************************!*\
@@ -319,10 +319,10 @@ function postsSeen(posts) {
 
 /***/ }),
 
-/***/ "./resources/js/Pages/home.jsx":
-/*!*************************************!*\
-  !*** ./resources/js/Pages/home.jsx ***!
-  \*************************************/
+/***/ "./resources/js/Pages/sugerencias.jsx":
+/*!********************************************!*\
+  !*** ./resources/js/Pages/sugerencias.jsx ***!
+  \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -354,6 +354,24 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+/**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+var disqus_config = function disqus_config() {
+  this.page.url = 'http://127.0.0.1:8000/sugerencias'; // Replace PAGE_URL with your page's canonical URL variable
+
+  this.page.identifier = sugerencias; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+var chat = function chat() {
+  // DON'T EDIT BELOW THIS LINE
+  var d = document,
+      s = d.createElement('script');
+  s.src = 'https://proyectois.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+};
 
 var Home = function Home() {
   var posts = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.posts;
@@ -367,51 +385,25 @@ var Home = function Home() {
       category = _useState2[0],
       setCategory = _useState2[1];
 
-  document.changedCat = function (cat, cat_id) {
-    setCategory(cat);
-  };
-
   posts = posts[category];
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
-    className: "hero"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Health 101"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, t('hero.text')))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "container mt-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", {
-    className: "text-uppercase mt-5 mb-4"
-  }, t('about')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, t('about.text.1')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, t('about.text.2')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, t('about.text.3')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, "- ", t('about.list.1')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, "- ", t('about.list.2')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, "- ", t('about.list.3')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, "- ", t('about.list.4')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, "- ", t('about.list.5'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, t('about.text.4')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
-    className: "text-uppercase mt-5 mb-4"
-  }, t('last post')), posts.filter(function (x) {
-    return !window.pc.includes(x.id);
-  }).reverse().map(function (p, i) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_PostCard__WEBPACK_IMPORTED_MODULE_3__.default, {
-      id: p.id,
-      key: i,
-      alt: i % 2 == 0,
-      name_ES: p.name_ES,
-      image: p.image,
-      name: p.name,
-      extract: (i18n.language === 'en' ? p.content : p.content_ES).split(' ').filter(function (_, i) {
-        return i < 20;
-      }).join(" "),
-      slug: p.slug
-    });
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", {
-    className: "text-uppercase mt-5 mb-4"
-  }, t('sugerencias')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "deja aqui tus sugerencias"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-    type: "submit",
-    onClick: function onClick(event) {
-      return window.location.href = '/sugerencias';
-    },
-    className: "btn btn-sm btn-custom-light"
-  }, "Click here")));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    align: "center",
+    className: "main-content"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    src: "https://media.istockphoto.com/photos/message-board-picture-id1165735039?k=6&m=1165735039&s=612x612&w=0&h=Lm2j3PMJQtxJjonMwMG9MFADZt7Og09ItOol4x6Olz0=",
+    width: "780",
+    height: "390"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Tu sugerencia es importate para nosotros, nos ayudarias a mejorar cada vez el contenido de la p\xE1gina.")), chat(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    id: "disqus_thread"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("noscript", null, "Please enable JavaScript to view the ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+    href: "https://disqus.com/?ref_noscript"
+  }, "comments powered by Disqus.")));
 };
 
 Home.layout = function (page) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_Layout__WEBPACK_IMPORTED_MODULE_1__.default, {
     children: page,
-    title: 'Health 101'
+    title: "Health 101"
   });
 };
 
