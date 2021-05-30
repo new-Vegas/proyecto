@@ -12,7 +12,7 @@ class Post extends Model
 {
     use HasFactory, Sortable, Sluggable;
 
-    protected $fillable = ['name', 'name_ES', 'content_ES', 'content', 'image', 'enabled', 'slug', 'user_id', 'usr_type_id'];
+    protected $fillable = ['name', 'name_ES', 'content_ES', 'content', 'image', 'enabled', 'slug', 'user_id', 'usr_type_id', 'views'];
     public $sortable = ['name'];
 
     public function user()
@@ -56,5 +56,11 @@ class Post extends Model
             'category_posts',
             'post_id',
             'category_id');
+    }
+    
+    public function setviews(){
+        $data = $this::find($this->id);
+        $data->views = $data->views + 1;
+        $data->save();
     }
 }

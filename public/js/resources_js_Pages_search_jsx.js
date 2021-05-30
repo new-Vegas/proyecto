@@ -440,7 +440,7 @@ var Home = function Home() {
       name: p.name,
       extract: (i18n.language === 'en' ? p.content : p.content_ES).split(' ').filter(function (_, i) {
         return i < 20;
-      }).join(" ").reverse(),
+      }).join(" "),
       slug: p.slug
     });
   })));

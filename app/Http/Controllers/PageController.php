@@ -38,6 +38,9 @@ class PageController extends Controller
             'similar' => $post->sameCat(),
             'categories' => Category::all(),
             'types' => $types,
+            'id' => $post->id,
+            'views' => $post->views,
+            'setViews' => $post->setviews(),
         ]);
     }
 

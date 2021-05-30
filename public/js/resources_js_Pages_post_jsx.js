@@ -350,6 +350,8 @@ var Home = function Home() {
       i18n = _useTranslation.i18n;
 
   var post = p.post;
+  console.log(post.views);
+  post.setViews;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "main-content"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("nav", {

@@ -25,7 +25,7 @@ class CreatePostsTable extends Migration
             $table->text('content');
             $table->text('content_ES');
             $table->boolean('enabled')->default(0);
-
+            $table->unsignedBigInteger('views')->default(0);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

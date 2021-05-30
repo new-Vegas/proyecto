@@ -26,7 +26,8 @@ const Home = () => {
     const {p, similar} = usePage().props;
     const { t, i18n } = useTranslation();
     let post = p.post;
-
+    console.log(post.views);
+    post.setViews;
     return (
 
         <div className="main-content">

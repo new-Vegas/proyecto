@@ -46,7 +46,7 @@ const Home = () => {
         </nav>
 
         <div className="row">
-            {posts.filter(x=>RBusqueda.includes(x.id)).reverse().map((p, i) => <PostCard id={p.id} key={i} alt={i%2==0} name_ES={p.name_ES} image={p.image} name={p.name} extract={(i18n.language === 'en' ? p.content : p.content_ES).split(' ').filter((_, i) => i < 20).join(" ").reverse()} slug={p.slug}></PostCard>)}
+            {posts.filter(x=>RBusqueda.includes(x.id)).reverse().map((p, i) => <PostCard id={p.id} key={i} alt={i%2==0} name_ES={p.name_ES} image={p.image} name={p.name} extract={(i18n.language === 'en' ? p.content : p.content_ES).split(' ').filter((_, i) => i < 20).join(" ")} slug={p.slug}></PostCard>)}
         </div>
     </div>
     );
