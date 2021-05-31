@@ -151,10 +151,9 @@ export default function Layout({ title, children }) {
                 <footer className="bg-dark text-white text-center p-1">
                     <h1 className="">Health 101</h1>
                     {t("Contact")}
-                     <p className="">Redes Sociales: 
-                        <a href="https://www.facebook.com/Comebalanceadouabc20-101021035158385">  Facebook   </a>
-                        <a href="#">  Twitter  </a>
-                        <a href="#">  Instagram  </a>
+                     <p className="">Social Media: 
+                        <a href="https://www.facebook.com/Comebalanceadouabc20-101021035158385">  &nbsp;Facebook Page  </a>
+                        <a href="https://www.facebook.com/groups/413938496303058?_rdc=1&_rdr">    &nbsp;Facebook Group   </a>
                     </p>
                     <div className="mt-3 footer-links d-flex flex-column flex-md-row">
                         {/* <InertiaLink>Privacy</InertiaLink>
