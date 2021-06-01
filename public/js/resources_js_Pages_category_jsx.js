@@ -213,13 +213,11 @@ function Layout(_ref) {
     className: ""
   }, "Health 101"), t("Contact"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     className: ""
-  }, "Redes sociales", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+  }, "Social Media:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "https://www.facebook.com/Comebalanceadouabc20-101021035158385"
-  }, "Facebook"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "#"
-  }, "Twitter"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "#"
-  }, "Instagram")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, "  \xA0Facebook Page  "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+    href: "https://www.facebook.com/groups/413938496303058?_rdc=1&_rdr"
+  }, "    \xA0Facebook Group   ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "mt-3 footer-links d-flex flex-column flex-md-row"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.InertiaLink, {
     className: "btn btn-sm btn-custom-light",
@@ -353,6 +351,42 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+var viewsCompare = function viewsCompare(posts) {
+  var mostview = posts[0];
+  var i = 0;
+
+  for (i = 1; i < posts.length; i++) {
+    if (posts[i].views > mostview.views) mostview = posts[i];
+  }
+
+  return mostview;
+};
+
+var mostViewAP = function mostViewAP(categorie, posts, t, i18n) {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(viewsCompare(posts)),
+      _useState2 = _slicedToArray(_useState, 2),
+      MVP = _useState2[0],
+      setMVP = _useState2[1];
+
+  if (categorie.slug.localeCompare('product') == 0 || categorie.slug.localeCompare('articles') == 0) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, t('mostViewP')), posts.filter(function (p) {
+      return MVP.id == p.id;
+    }).reverse().map(function (p, i) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_PostCard__WEBPACK_IMPORTED_MODULE_3__.default, {
+        key: i,
+        alt: i % 2 == 0,
+        name_ES: p.name_ES,
+        image: p.image,
+        name: p.name,
+        extract: (i18n.language === 'en' ? p.content : p.content_ES).split(' ').filter(function (_, i) {
+          return i < 20;
+        }).join(" "),
+        slug: p.slug
+      });
+    }));
+  }
+};
+
 var Category = function Category() {
   var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.usePage)().props,
       posts = _usePage$props.posts,
@@ -363,10 +397,10 @@ var Category = function Category() {
       t = _useTranslation.t,
       i18n = _useTranslation.i18n;
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(document.CCId),
-      _useState2 = _slicedToArray(_useState, 2),
-      utype = _useState2[0],
-      setUtype = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(document.CCId),
+      _useState4 = _slicedToArray(_useState3, 2),
+      utype = _useState4[0],
+      setUtype = _useState4[1];
 
   document.changedCat = function (cat, cat_id) {
     document.CCId = cat_id;
@@ -374,6 +408,8 @@ var Category = function Category() {
     setUtype(cat_id);
   };
 
+  console.log(category);
+  console.log(posts);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "main-content"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("nav", {
@@ -393,7 +429,7 @@ var Category = function Category() {
     className: i18n.language != 'es' ? 'hidden' : ''
   }, category.ES_name)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: ""
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
+  }, mostViewAP(category, posts, t, i18n), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
     className: "text-uppercase mt-5 mb-4"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
     className: i18n.language != 'en' ? 'hidden' : ''
