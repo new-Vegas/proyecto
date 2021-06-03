@@ -246,11 +246,34 @@ __webpack_require__.r(__webpack_exports__);
 var Home = function Home() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "main-content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Hola Mundo!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-    type: "text",
-    id: "SB",
-    name: "s"
-  }));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    id: "mc_embed_signup"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+    action: "https://uabc.us6.list-manage.com/subscribe/post?u=030b610020d1ae1879c1643e9&id=6b65691459",
+    method: "post",
+    id: "mc-embedded-subscribe-form",
+    name: "mc-embedded-subscribe-form",
+    target: "_blank",
+    novalidate: true
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    id: "mc_embed_signup_scroll"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "Subscribe"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "email",
+    name: "EMAIL",
+    id: "mce-EMAIL"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    id: "mce-responses"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    id: "mce-error-response"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    id: "mce-success-response"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    "aria-hidden": "true"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "submit",
+    name: "subscribe",
+    id: "mc-embedded-subscribe"
+  }))))));
 };
 
 Home.layout = function (page) {

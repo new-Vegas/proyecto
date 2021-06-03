@@ -3,7 +3,6 @@ import Layout from "../Components/Layout";
 import { usePage } from "@inertiajs/inertia-react";
 import PostCard from "../Components/PostCard";
 import { useTranslation } from 'react-i18next';
-import postsSeen from "../Components/seenPosts";
 
 const Home = () => {
     let {posts} = usePage().props;
