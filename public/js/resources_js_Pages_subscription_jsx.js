@@ -249,7 +249,7 @@ var Home = function Home() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     id: "mc_embed_signup"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
-    action: "https://uabc.us6.list-manage.com/subscribe/post?u=030b610020d1ae1879c1643e9&id=6b65691459",
+    action: "https://gmail.us6.list-manage.com/subscribe/post?u=9fca2ea7ed8f9b708512e7873&id=ffc5e5c85c",
     method: "post",
     id: "mc-embedded-subscribe-form",
     name: "mc-embedded-subscribe-form",

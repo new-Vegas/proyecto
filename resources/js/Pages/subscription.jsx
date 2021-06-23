@@ -9,7 +9,7 @@ const Home = () => {
 
         <div className="main-content">
             <div id="mc_embed_signup">
-                <form action="https://uabc.us6.list-manage.com/subscribe/post?u=030b610020d1ae1879c1643e9&amp;id=6b65691459" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"  target="_blank" novalidate>
+                <form action="https://gmail.us6.list-manage.com/subscribe/post?u=9fca2ea7ed8f9b708512e7873&amp;id=ffc5e5c85c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"  target="_blank" novalidate>
                     <div id="mc_embed_signup_scroll">
 	                    <h2>Subscribe</h2>
                         <div >
