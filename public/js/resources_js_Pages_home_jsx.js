@@ -91,7 +91,7 @@ function Layout(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.InertiaLink, {
     className: "navbar-brand",
     href: "\\"
-  }, "Health 101"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+  }, "Come balanceado"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
     className: "navbar-toggler",
     type: "button",
     "data-bs-toggle": "collapse",
@@ -372,7 +372,7 @@ var Home = function Home() {
     className: "hero"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Health 101"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, t('hero.text')))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Come balanceado"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, t('hero.text')))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "container mt-4"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", {
     className: "text-uppercase mt-5 mb-4"

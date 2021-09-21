@@ -54,7 +54,7 @@ export default function Layout({ title, children }) {
                             className="navbar-brand"
                             href="\"
                         >
-                            Health 101
+                            Come balanceado
                         </InertiaLink>
                         <button
                             className="navbar-toggler"

@@ -439,7 +439,7 @@ function Layout(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.InertiaLink, {
     className: "navbar-brand",
     href: "\\"
-  }, "Health 101"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+  }, "Come balanceado"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
     className: "navbar-toggler",
     type: "button",
     "data-bs-toggle": "collapse",

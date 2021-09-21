@@ -21,7 +21,7 @@ const Home = () => {
         <>
             <section className="hero">
                 <div className="content">
-                    <h3>Health 101</h3>
+                    <h3>Come balanceado</h3>
                     <p>{t('hero.text')}</p>
                 </div>
             </section>
